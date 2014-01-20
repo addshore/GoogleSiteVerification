@@ -13,15 +13,17 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Google Site Verification Integration',
-	'version'        => '0.1.0',
+	'version'        => '0.1.1',
 	'author'         => 'Adam Shorland',
-	'descriptionmsg' => 'Inserts Google Site Verification meta tag in to MediaWiki pages',
+	'descriptionmsg' => 'gsv-desc',
 	'url'            => 'https://www.github.com/addshore/GoogleSiteVerification',
 );
 
 $wgHooks['BeforePageDisplay'][]  = 'efGoogleSiteVerificationHook';
 
 $wgGoogleVerificationCode = '';
+
+$wgExtensionMessagesFiles['GoogleSiteVerification'] = __DIR__ . '/GoogleSiteVerification.i18n.php';
 
 function efGoogleSiteVerificationHook( OutputPage &$out, Skin &$skin ) {
 	global $wgGoogleVerificationCode;
